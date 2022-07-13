@@ -6,7 +6,11 @@
 <ul>
     {% for todoitem in todoitem_list %}
         <li>
-            {{ todoitem.title }} commits:{{ todoitem.commits }} done:{{ todoitem.done }}
+            <p>
+                {{ todoitem.title }} commits:{{ todoitem.commits }} done:{{ todoitem.done }}
+            </p>
+            <button>Commit</button>
+            <button>Done</button>
         </li>
     {% endfor %}
 </ul>
