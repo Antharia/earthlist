@@ -3,15 +3,23 @@
 {% block title %}Earthlist{% endblock title %}
 
 {% block content %}
-<ul>
-    {% for todoitem in todoitem_list %}
-        <li>
+<div class="container">
+
+    <ul>
+        {% for todoitem in todoitem_list %}
+        <li class="box">
             <p>
-                {{ todoitem.title }} commits:{{ todoitem.commits }} done:{{ todoitem.done }}
+            <strong>{{ todoitem.title }}</strong>
+            Commits: {{ todoitem.commits }} 
+            Done: {{ todoitem.done }}
+            Rank : {{ todoitem.get_rank }}
+            {% if user.is_authenticated %}
+            <button class="button is-info">Commit</button>
+            <button class="button is-success">Done</button>
+            {% endif %}
             </p>
-            <button>Commit</button>
-            <button>Done</button>
         </li>
-    {% endfor %}
-</ul>
+        {% endfor %}
+    </ul>
+</div>
 {% endblock content %}

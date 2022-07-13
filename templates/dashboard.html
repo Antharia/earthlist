@@ -1,0 +1,13 @@
+{% extends "_base.html" %}
+
+{% block title %}Dashboard{% endblock title %}
+
+{% block content %}
+    <h2>dashboard</h2>
+    <h3>Tasks you wrote</h3>
+    {% for todo_item in todo_item_list %}
+        <p>{{ todo_item.title }}</p>
+    {% endfor %}
+    <h3>Tasks you commited</h3>
+    <h3>Tasks you've done</h3>
+{% endblock content %}
