@@ -7,7 +7,29 @@
     <title>Earthlist</title>
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 </head>
-    <h1>Earthlist</h1>
+    <nav>
+        <ul>
+            <h1><a href="{% url 'home' %}">Earthlist</a></h1>
+            <li>
+                <a href="{% url 'about' %}">About</a>
+            </li>
+            {% if user.is_authenticated %}
+                <li>
+                    <a href="{% url 'account_logout' %}">Log out</a>
+                </li>
+                <li>
+                    <p>{{ user.email }}</p>
+                </li>
+            {% else %}
+                <li>
+                    <a href="{% url 'account_login' %}">Log in</a>
+                </li>
+                <li>
+                    <a href="{% url 'account_signup' %}">Sign up</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
     {% block content %}
     {% endblock content %}
 </body>
