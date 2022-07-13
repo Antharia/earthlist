@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     "allauth.account",
     # Local apps 
     "accounts.apps.AccountsConfig",
+    "pages.apps.PagesConfig",
     "todos.apps.TodosConfig",
 ]
 

@@ -7,13 +7,16 @@
 </head>
     <nav>
         <ul>
-            <h1>Earthlist</h1>
+            <h1><a href="{% url 'home' %}">Earthlist</a></h1>
             <li>
                 <a href="{% url 'about' %}">About</a>
             </li>
             {% if user.is_authenticated %}
                 <li>
                     <a href="{% url 'account_logout' %}">Log out</a>
+                </li>
+                <li>
+                    <p>{{ user.email }}</p>
                 </li>
             {% else %}
                 <li>
