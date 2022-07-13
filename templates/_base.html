@@ -5,7 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Earthlist</title>
 </head>
-    <h1>Earthlist</h1>
+    <nav>
+        <ul>
+            <h1>Earthlist</h1>
+            <li>
+                <a href="{% url 'about' %}">About</a>
+            </li>
+            {% if user.is_authenticated %}
+                <li>
+                    <a href="{% url 'account_logout' %}">Log out</a>
+                </li>
+            {% else %}
+                <li>
+                    <a href="{% url 'account_login' %}">Log in</a>
+                </li>
+                <li>
+                    <a href="{% url 'account_signup' %}">Sign up</a>
+                </li>
+            {% endif %}
+        </ul>
+    </nav>
     {% block content %}
     {% endblock content %}
 </body>

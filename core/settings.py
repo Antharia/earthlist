@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Third party
+    "allauth",
+    "allauth.account",
     # Local apps 
     "accounts.apps.AccountsConfig",
     "todos.apps.TodosConfig",
@@ -131,3 +134,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # My settings
 AUTH_USER_MODEL = "accounts.CustomUser"
+
+# django-allauth config
+LOGIN_REDIRECT_URL = "home"
+ACCOUNT_LOGOUT_REDIRECT = "home"
+SITE_ID = 1
+AUTHENTICATION_BACKENDS = (
+        "django.contrib.auth.backends.ModelBackend",
+        "allauth.account.auth_backends.AuthenticationBackend",
+        )
+
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
